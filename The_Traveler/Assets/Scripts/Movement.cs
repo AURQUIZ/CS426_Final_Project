@@ -11,8 +11,8 @@ public class Movement : MonoBehaviour
     private float yaw = 0.0f;
     private float pitch = 0.0f;
     private float maxPitch = 40;
-    private float speedH = 7.0f;
-    private float speedV = 7.0f;
+    private float speedH = 6.0f;
+    private float speedV = 6.0f;
     private Transform t;
     private CharacterController controller;
     private Vector3 movement;
@@ -28,6 +28,8 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         // controls player movement
         if (controller.isGrounded)
         {
@@ -62,7 +64,6 @@ public class Movement : MonoBehaviour
         pitch -= speedV * Input.GetAxis("Mouse Y");
         yaw += speedH * Input.GetAxis("Mouse X");
 
-        Debug.Log(pitch);
         // lock the pitch if the player looks too far down or up
         if (pitch >= maxPitch)
             pitch = maxPitch;
