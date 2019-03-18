@@ -1,1 +1,3 @@
-work in progress...
+Player movement -- Monday by 11:59pm (estimate 2 hrs)
+Player interaction -- Monday by 11:59pm (estimate 3 hrs)
+Player time travel -- Monday by 11:59pm (estimate 5 hrs)
