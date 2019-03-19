@@ -6,8 +6,12 @@ public class mapScript : MonoBehaviour
 {
     public Transform target;
 
-    void Update()
+    void LateUpdate()
     {
-        transform.position = new Vector3(target.position.x, transform.position.y, target.position.z);
+        Vector3 newPos = target.position;
+        newPos.y = target.position.y;
+        transform.position = newPos;
+
+        transform.rotation = Quaternion.Euler(90f, transform.eulerAngles.y, 0f);
     }
 }
