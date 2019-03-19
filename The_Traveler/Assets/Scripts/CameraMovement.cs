@@ -9,11 +9,41 @@ public class CameraMovement : MonoBehaviour
     private bool rightBob;
     public Animation anim;
     public CharacterController controller;
+    public AudioClip[] walkFloorClips;
+    public AudioClip[] runFloorClips;
+    private AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
         leftBob = true; //player bobs to left first
         rightBob = false;
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    void Step()
+    {
+        AudioClip clip = GetClip();
+        if (!isMoving)
+        {
+            audioSource.Stop();
+        }
+        else
+        {
+            audioSource.PlayOneShot(clip, 0.5f);
+        }
+    }
+
+    private AudioClip GetClip()
+    {
+        bool isRunning = this.gameObject.GetComponentInChildren<Movement>().isRunning;
+        if (isRunning)
+        {
+            return runFloorClips[UnityEngine.Random.Range(0, runFloorClips.Length)];
+        }
+        else
+        {
+            return walkFloorClips[UnityEngine.Random.Range(0, walkFloorClips.Length)];
+        }
     }
 
     void WalkingAnimation()

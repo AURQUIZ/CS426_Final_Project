@@ -16,11 +16,11 @@ public class Movement : MonoBehaviour
     private float speedH = 6.0f;
     private float speedV = 6.0f;
     private Transform t;
-    private CharacterController controller;
+    public CharacterController controller;
     private Vector3 movement;
 
     private bool isMoving;
-    private bool isRunning;
+    public bool isRunning;
     private bool leftBob;
     private bool rightBob;
     public Animation anim;
