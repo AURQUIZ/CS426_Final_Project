@@ -9,6 +9,10 @@ public class DontDestroy : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         GameObject[] objs = GameObject.FindGameObjectsWithTag("Player");
         GameObject[] scenes = GameObject.FindGameObjectsWithTag("SceneManager");
+        GameObject[] grabbables = GameObject.FindGameObjectsWithTag("Grabbable");
+
+        if (grabbables.Length > 1)
+            Destroy(grabbables[1]);
         if (objs.Length > 1)
             Destroy(objs[1]);
         if (scenes.Length > 1)
