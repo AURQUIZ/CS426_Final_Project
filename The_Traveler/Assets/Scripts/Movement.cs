@@ -5,6 +5,8 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     public float speed = 50;
+    public float walkingSpeed;
+    public float runningSpeed;
     public float gravity = 10.0f;
 
 
@@ -16,13 +18,50 @@ public class Movement : MonoBehaviour
     private Transform t;
     private CharacterController controller;
     private Vector3 movement;
-    
 
+    private bool isMoving;
+    private bool isRunning;
+    private bool leftBob;
+    private bool rightBob;
+    public Animation anim;
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
         t = GetComponent<Transform>();
+        leftBob = true; //player bobs to left first
+        rightBob = false;
+        walkingSpeed = speed;
+        runningSpeed = walkingSpeed * 1.5f;
+    }
+
+    void WalkingAnimation()
+    {
+        if(controller.isGrounded == true)
+        {
+            if (isMoving == true)
+            {
+                if(leftBob == true)
+                {
+                    if(!anim.isPlaying)
+                    {
+                        anim.Play("walkLeft");
+                        leftBob = false;
+                        rightBob = true;
+                    }
+                }
+                if(rightBob == true)
+                {
+                    if(!anim.isPlaying)
+                    {
+                        anim.Play("walkRight");
+                        rightBob = false;
+                        leftBob = true;
+                    }
+                }
+            }
+        }
+            
     }
 
     // Update is called once per frame
@@ -35,6 +74,17 @@ public class Movement : MonoBehaviour
         {
             // create a zero vector
             movement = Vector3.zero;
+
+            if (Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.S)) //if player moves, but not backwards (cannot sprint while going back)
+            {
+                isRunning = true;
+                speed = runningSpeed;
+            }
+            else
+            {
+                isRunning = false;
+                speed = walkingSpeed;
+            }
 
             // add values or subtract values based on key input
             // move character forward or backwards
@@ -77,6 +127,18 @@ public class Movement : MonoBehaviour
         movement.y = movement.y - (gravity * Time.deltaTime);
         // move the player based on the key inputs
         controller.Move(movement * Time.deltaTime * speed);
+
+        // ANIMATING HEAD BOBS WHEN WALKING //
+        float inputX = Input.GetAxis("Horizontal");
+        float inputY = Input.GetAxis("Vertical");
+
+        if (inputX == 0 || inputY == 0)
+            isMoving = false;
+        else
+            isMoving = true;
+
+        WalkingAnimation();
+
     }
 }
 
