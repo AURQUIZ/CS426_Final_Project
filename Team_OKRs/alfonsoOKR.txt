@@ -1,0 +1,9 @@
+Schedule and Deliverable:
+
+	Develope base level 1 layout -- Tuesday by 11:59pm (estimate 5 hrs)
+	Proto type first puzzel -- Tuesday by 11:59 (estimate 3 hrs)	
+	Add moving doors -- Tuesday by 11:59pm (estimate 4 hrs)
+	
+
+	
+
