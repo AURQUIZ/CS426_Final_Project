@@ -15,7 +15,7 @@ public class Force : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        pushForce = this.gameObject.GetComponentInChildren<Player_Movement>().speed;
+        pushForce = this.gameObject.GetComponentInChildren<Movement>().speed;
     }
 
     void OnControllerColliderHit(ControllerColliderHit hit)
