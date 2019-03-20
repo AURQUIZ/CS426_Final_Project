@@ -73,7 +73,7 @@ public class Movement : MonoBehaviour
             // Have the character jump
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                movement.y = 4;
+                movement.y = 3;
                 jumpAudio.Play();
             }
         }
