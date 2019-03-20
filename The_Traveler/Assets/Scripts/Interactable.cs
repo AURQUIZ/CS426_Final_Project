@@ -17,7 +17,7 @@ public class Interactable : MonoBehaviour
 
     private Rigidbody rb;
     private Transform t;
-    public GameObject parent;
+    private GameObject parent;
     
     void Start()
     {
