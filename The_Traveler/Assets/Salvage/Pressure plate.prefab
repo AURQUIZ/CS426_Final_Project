@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4087658511131064815}
   - component: {fileID: 4087658511131064814}
   - component: {fileID: 4087658511131064813}
-  - component: {fileID: 4087658511131064818}
+  - component: {fileID: 363805908539430690}
   m_Layer: 0
   m_Name: Pressure plate
   m_TagString: Untagged
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2614c52f79999bc458d808b9ee57da3f, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -106,7 +106,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4087658511131064818
+--- !u!114 &363805908539430690
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4087658511131064812}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04ea5dcef804a9f469046f1608d9735e, type: 3}
+  m_Script: {fileID: 11500000, guid: 44747b50724480e43800bfd9f50efe8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 0}
+  door: {fileID: 254151889478315017, guid: 6922f9899e131474fbf5add951eb046f, type: 3}
