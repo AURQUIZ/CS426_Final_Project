@@ -6,6 +6,7 @@ TagManager:
   tags:
   - SceneManager
   - Grabbable
+  - blue key
   layers:
   - Default
   - TransparentFX
