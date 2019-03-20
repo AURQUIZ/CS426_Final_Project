@@ -8,7 +8,7 @@ public class MapScript : MonoBehaviour
 
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        target = GameObject.FindGameObjectWithTag("Player").transform; //automatically attaches to player
     }
     void LateUpdate()
     {
