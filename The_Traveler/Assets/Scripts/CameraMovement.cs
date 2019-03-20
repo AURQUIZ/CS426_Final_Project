@@ -30,7 +30,7 @@ public class CameraMovement : MonoBehaviour
         }
         else
         {
-            audioSource.PlayOneShot(clip, 0.5f);
+            audioSource.PlayOneShot(clip, 0.5f); //plays clip
         }
     }
 
@@ -39,38 +39,42 @@ public class CameraMovement : MonoBehaviour
         bool isRunning = this.gameObject.GetComponentInChildren<Movement>().isRunning;
         if (isRunning)
         {
-            return runFloorClips[UnityEngine.Random.Range(0, runFloorClips.Length)];
+            return runFloorClips[UnityEngine.Random.Range(0, runFloorClips.Length)]; //gets random clip
         }
         else
         {
-            return walkFloorClips[UnityEngine.Random.Range(0, walkFloorClips.Length)];
+            return walkFloorClips[UnityEngine.Random.Range(0, walkFloorClips.Length)]; //gets random clip
         }
     }
 
     void WalkingAnimation()
     {
-        if (controller.isGrounded == true)
+        if (controller.isGrounded == true) //if player is grounded
         {
-            if (isMoving == true)
+            if (isMoving == true) //if player is moving
             {
-                if (leftBob == true)
+                if (leftBob == true) //left side animation
                 {
-                    if (!anim.isPlaying)
+                    if (!anim.isPlaying) //if there's no anim playing
                     {
                         anim.Play("walkLeft");
-                        leftBob = false;
-                        rightBob = true;
+                        leftBob = false; //wont do left bob next
+                        rightBob = true; //does right bob next
                     }
                 }
-                if (rightBob == true)
+                if (rightBob == true) //right side animation
                 {
-                    if (!anim.isPlaying)
+                    if (!anim.isPlaying) //if there's no anim playing
                     {
                         anim.Play("walkRight");
-                        rightBob = false;
-                        leftBob = true;
+                        rightBob = false; //wont do right bob next
+                        leftBob = true; //does left bob next
                     }
                 }
+            }
+            else
+            {
+                anim.Stop(); //stop animation immediately
             }
         }
 
