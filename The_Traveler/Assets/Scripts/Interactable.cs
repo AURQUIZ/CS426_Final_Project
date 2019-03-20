@@ -13,7 +13,7 @@ public class Interactable : MonoBehaviour
 
     private bool holdable = false;
     private Vector3 objectPos;
-    private float distanceFromPlayer;
+    private float distanceFromPlayer = 100f;
 
     private Rigidbody rb;
     private Transform t;
@@ -21,6 +21,7 @@ public class Interactable : MonoBehaviour
     
     void Start()
     {
+        parent = GameObject.FindGameObjectWithTag("Player");
         // get rigid body and transform
         rb = GetComponent<Rigidbody>();
         t = GetComponent<Transform>();
@@ -28,29 +29,33 @@ public class Interactable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // check the distance between the player and the object
-        distanceFromPlayer = Vector3.Distance(t.transform.position, parent.transform.position);
-
-        // check if the player is withing grabbing distance
-        if(distanceFromPlayer >= 20f)
-            holdable = false;
-
-        // if player is within holding distance and presses E then "grab" it
-        if (holdable && Input.GetKey(KeyCode.E))
+        if(parent != null)
         {
-            rb.velocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-            t.SetParent(parent.transform);
-        }
-        else
-        {
-            // "let go" of the object
-            objectPos = t.transform.position;
-            t.SetParent(null);
-            rb.useGravity = true;
-            t.transform.position = objectPos;
+            // check the distance between the player and the object
+            distanceFromPlayer = Vector3.Distance(t.transform.position, parent.transform.position);
 
+            // check if the player is withing grabbing distance
+            if (distanceFromPlayer >= 20f)
+                holdable = false;
+
+            // if player is within holding distance and presses E then "grab" it
+            if (holdable && Input.GetKey(KeyCode.E))
+            {
+                rb.velocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
+                t.SetParent(parent.transform);
+            }
+            else
+            {
+                // "let go" of the object
+                objectPos = t.transform.position;
+                t.SetParent(null);
+                rb.useGravity = true;
+                t.transform.position = objectPos;
+
+            }
         }
+
     }
 
     void OnMouseOver()

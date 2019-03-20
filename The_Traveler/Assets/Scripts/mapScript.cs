@@ -6,6 +6,10 @@ public class MapScript : MonoBehaviour
 {
     public Transform target;
 
+    void Start()
+    {
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+    }
     void LateUpdate()
     {
         Vector3 newPos = target.position;
