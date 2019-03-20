@@ -5,6 +5,8 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     public float speed = 50;
+    public float walkingSpeed;
+    public float runningSpeed;
     public float gravity = 10.0f;
 
 
@@ -16,15 +18,18 @@ public class Movement : MonoBehaviour
     private Transform t;
     private CharacterController controller;
     private Vector3 movement;
-    
 
+    private bool isMoving;
+    public bool isRunning;
+    public AudioSource jumpAudio;
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
         t = GetComponent<Transform>();
+        walkingSpeed = speed;
+        runningSpeed = walkingSpeed * 1.5f;
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -35,6 +40,17 @@ public class Movement : MonoBehaviour
         {
             // create a zero vector
             movement = Vector3.zero;
+
+            if (Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.S)) //if player moves, but not backwards (cannot sprint while going back)
+            {
+                isRunning = true;
+                speed = runningSpeed;
+            }
+            else
+            {
+                isRunning = false;
+                speed = walkingSpeed;
+            }
 
             // add values or subtract values based on key input
             // move character forward or backwards
@@ -56,8 +72,10 @@ public class Movement : MonoBehaviour
 
             // Have the character jump
             if (Input.GetKeyDown(KeyCode.Space))
-                movement.y = 4;
-
+            {
+                movement.y = 3;
+                jumpAudio.Play();
+            }
         }
 
         // turn character based on mouse input
@@ -77,6 +95,7 @@ public class Movement : MonoBehaviour
         movement.y = movement.y - (gravity * Time.deltaTime);
         // move the player based on the key inputs
         controller.Move(movement * Time.deltaTime * speed);
+
     }
 }
 
