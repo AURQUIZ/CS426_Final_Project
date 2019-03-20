@@ -30,7 +30,7 @@ public class Door_Trigger : MonoBehaviour
             if(c.gameObject.gameObject.tag == "blue key")
             {
                 isOpen = true;
-                door.transform.position += new Vector3(0, -26, 0);
+                door.transform.position += new Vector3(0, -33, 0);
             }
         }
             
@@ -41,7 +41,7 @@ public class Door_Trigger : MonoBehaviour
         if(isOpen == true)
         {
             isOpen = false;
-            door.transform.position += new Vector3(0, 26, 0);
+            door.transform.position += new Vector3(0, 33, 0);
         }
     }
 }
