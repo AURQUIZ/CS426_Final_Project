@@ -16,7 +16,7 @@ public class Movement : MonoBehaviour
     private float speedH = 6.0f;
     private float speedV = 6.0f;
     private Transform t;
-    public CharacterController controller;
+    private CharacterController controller;
     private Vector3 movement;
 
     private bool isMoving;
@@ -24,6 +24,7 @@ public class Movement : MonoBehaviour
     private bool leftBob;
     private bool rightBob;
     public Animation anim;
+    public AudioSource jumpAudio;
     // Start is called before the first frame update
     void Start()
     {
@@ -106,8 +107,10 @@ public class Movement : MonoBehaviour
 
             // Have the character jump
             if (Input.GetKeyDown(KeyCode.Space))
+            {
                 movement.y = 4;
-
+                jumpAudio.Play();
+            }
         }
 
         // turn character based on mouse input

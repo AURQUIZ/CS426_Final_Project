@@ -18,6 +18,7 @@ public class CameraMovement : MonoBehaviour
         leftBob = true; //player bobs to left first
         rightBob = false;
         audioSource = GetComponent<AudioSource>();
+        anim = GetComponent<Animation>();
     }
 
     void Step()
