@@ -973,7 +973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ac1e459ccf7e664c82f04c73116ef15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 1833195439}
 --- !u!1001 &896128205
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1642,6 +1642,12 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!4 &1833195439 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 199523690538511121, guid: 3579d0fd7c3c7244d8a8915393e4f76c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1833195428}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1834039986
 GameObject:
   m_ObjectHideFlags: 0
