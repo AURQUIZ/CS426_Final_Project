@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44544262, g: 0.49510676, b: 0.57404727, a: 1}
+  m_IndirectSpecularColor: {r: 0.44544232, g: 0.49510586, b: 0.57404596, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -231,10 +231,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 73003001}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -48.56391, y: 2.968629, z: 69.763535}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalPosition: {x: 0, y: 0, z: 21.12}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 355640445}
+  m_Father: {fileID: 245426563}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &73003003
@@ -511,9 +511,10 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -48.56391, y: 2.968629, z: -35.836468}
   m_LocalScale: {x: 5, y: 5, z: 5}
-  m_Children: []
+  m_Children:
+  - {fileID: 73003002}
   m_Father: {fileID: 355640445}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &304650936
 GameObject:
@@ -929,7 +930,6 @@ Transform:
   m_LocalPosition: {x: 38.763912, y: 0.98043823, z: 65.53647}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 73003002}
   - {fileID: 245426563}
   - {fileID: 1013949777}
   m_Father: {fileID: 0}
@@ -1853,11 +1853,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 601140966}
     m_Modifications:
-    - target: {fileID: 4087658511131064812, guid: f6fd3988e471d0c439a2a7b234db58f8,
-        type: 3}
-      propertyPath: m_Name
-      value: Pressure plate
-      objectReference: {fileID: 0}
     - target: {fileID: 4087658511131064817, guid: f6fd3988e471d0c439a2a7b234db58f8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1912,6 +1907,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4087658511131064812, guid: f6fd3988e471d0c439a2a7b234db58f8,
+        type: 3}
+      propertyPath: m_Name
+      value: Pressure plate
       objectReference: {fileID: 0}
     - target: {fileID: 4087658511131064818, guid: f6fd3988e471d0c439a2a7b234db58f8,
         type: 3}
@@ -2033,7 +2033,7 @@ Transform:
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 355640445}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1319297075
 GameObject:
