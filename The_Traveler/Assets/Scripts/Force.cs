@@ -20,10 +20,10 @@ public class Force : MonoBehaviour
 
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        Debug.Log(gameObject.name + " has collided with " + hit.gameObject.name);
+        //Debug.Log(gameObject.name + " has collided with " + hit.gameObject.name);
         Rigidbody rb = hit.collider.attachedRigidbody;
         
-        Debug.Log("Player Speed: " + pushForce);
+        //Debug.Log("Player Speed: " + pushForce);
 
         if (rb == null || rb.isKinematic)
         {

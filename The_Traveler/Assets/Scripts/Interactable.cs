@@ -12,8 +12,10 @@ public class Interactable : MonoBehaviour
 {
 
     private bool holdable = false;
+    private bool holdingObject = false;
     private Vector3 objectPos;
     private float distanceFromPlayer = 100f;
+    private float time = 0.5f;
 
     private Rigidbody rb;
     private Transform t;
@@ -29,6 +31,7 @@ public class Interactable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        time -= Time.deltaTime;
         if(parent != null)
         {
             // check the distance between the player and the object
@@ -39,14 +42,20 @@ public class Interactable : MonoBehaviour
                 holdable = false;
 
             // if player is within holding distance and presses E then "grab" it
-            if (holdable && Input.GetKey(KeyCode.E))
+            if (holdable && Input.GetKey(KeyCode.E) && holdingObject == false && time < 0)
             {
+                rb.useGravity = false;
+                rb.detectCollisions = true;
+                time = 0.5f;
                 rb.velocity = Vector3.zero;
                 rb.angularVelocity = Vector3.zero;
                 t.SetParent(parent.transform);
+                holdingObject = true;
             }
-            else
+            else if(Input.GetKey(KeyCode.E) && holdingObject == true && time < 0)
             {
+                time = 0.5f;
+                holdingObject = false;
                 // "let go" of the object
                 objectPos = t.transform.position;
                 t.SetParent(null);
@@ -55,17 +64,15 @@ public class Interactable : MonoBehaviour
 
             }
         }
-
+        
     }
 
     void OnMouseOver()
     {
         // if the player is within holding distance and is looking directly at the object
-        if(distanceFromPlayer <= 20f)
+        if(distanceFromPlayer <= 20f && holdingObject == false)
         {
             holdable = true;
-            rb.useGravity = false;
-            rb.detectCollisions = true;
         }
     }
 
@@ -73,5 +80,10 @@ public class Interactable : MonoBehaviour
     void OnMouseExit()
     {
         holdable = false;
+        holdingObject = false;
+        objectPos = t.transform.position;
+        t.SetParent(null);
+        rb.useGravity = true;
+        t.transform.position = objectPos;
     }
 }
