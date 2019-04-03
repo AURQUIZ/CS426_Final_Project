@@ -5,34 +5,41 @@ using UnityEngine.SceneManagement;
 
 public class TimeTravelManager : MonoBehaviour
 {
-    private Scene currentScene;
     public GameObject player;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public bool traveled = false;
+    public float travelCooldown = 0f;
+    private Vector3 offsetTravel = new Vector3(0, 0, 1000);
 
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKey(KeyCode.F))
-        //    SingletonDataHolder.setData(SingletonDataHolder.getData() + 1);
-        //Debug.Log(SingletonDataHolder.getData());
-        currentScene = SceneManager.GetActiveScene();
-        if(Input.GetKey(KeyCode.Q))
-        {
-            SingletonDataHolder.SetPlayerPosition(player.transform.position);
-            if(currentScene.name.Equals("Level_01_Good_Timeline"))
-                SceneManager.LoadScene("SampleScene");
-            else
-                SceneManager.LoadScene("Level_01_Good_Timeline");
-            //Application.LoadLevel("Level_01_Good_Timeline");
-        }
-    }
+        travelCooldown -= Time.deltaTime;
+        //Debug.Log(travelCooldown);
 
-    void OnSceneLoaded()
-    {
-        player.transform.position = SingletonDataHolder.GetPlayerPosition();
+        if(Input.GetKeyDown(KeyCode.Q) && traveled == false && travelCooldown < 0)
+        {
+            Debug.Log("travled forward");
+            Debug.Log(traveled);
+            Debug.Log(travelCooldown);
+            travelCooldown = 5f;
+            player.transform.position += offsetTravel;
+            traveled = true;
+            //DataHolder.SetPlayerPosition(player.transform.position);
+            //if(currentScene.name.Equals("Level_01_Good_Timeline"))
+            //    SceneManager.LoadScene("SampleScene");
+            //else
+            //    SceneManager.LoadScene("Level_01_Good_Timeline");
+            //Application.LoadLevel("Level_01_Good_Timeline");
+        } else if (Input.GetKeyDown(KeyCode.Q) && traveled == true && travelCooldown < 0)
+        {
+            Debug.Log("Traveled backward");
+            Debug.Log(traveled);
+            Debug.Log(travelCooldown);
+            travelCooldown = 5f;
+            player.transform.position -= offsetTravel;
+            traveled = false;
+        }
+
+        
     }
 }
