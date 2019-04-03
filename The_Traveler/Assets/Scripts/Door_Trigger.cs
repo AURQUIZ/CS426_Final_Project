@@ -27,7 +27,7 @@ public class Door_Trigger : MonoBehaviour
     {
         if(isOpening == true)
         {
-            door.transform.Translate(Vector3.down * Time.deltaTime * 40);
+            door.transform.Translate(Vector3.up * Time.deltaTime * 40);
         }
         if(door.transform.position.y < doorPositionY - 50f)
         {
@@ -36,7 +36,7 @@ public class Door_Trigger : MonoBehaviour
 
         if(isClosing == true)
         {
-            door.transform.Translate(Vector3.up * Time.deltaTime * 40);
+            door.transform.Translate(Vector3.down * Time.deltaTime * 40);
         }
         if (door.transform.position.y > doorPositionY + 50f)
         {
