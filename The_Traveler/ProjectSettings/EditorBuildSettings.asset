@@ -6,12 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Prefab/Scenes/SampleScene.unity
+    path: Assets/Scenes/SampleScene.unity
     guid: 2ac89f7194565064d84b4331d3fb15b6
   - enabled: 1
-    path: Assets/Prefab/Scenes/Level_01_Good_Timeline.unity
+    path: Assets/Scenes/Level_01_Good_Timeline.unity
     guid: 41b0e1a704e054845bf1f17bd74f7665
   - enabled: 1
-    path: Assets/Prefab/Scenes/Level_01_Bad_Timeline.unity
+    path: Assets/Scenes/Level_01_Bad_Timeline.unity
     guid: e6522e11d4e05be4a94543544826f1ab
   m_configObjects: {}
