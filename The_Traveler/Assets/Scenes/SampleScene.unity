@@ -712,7 +712,6 @@ Transform:
   m_Father: {fileID: 1834039992}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
 --- !u!1 &407243781 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4087658511131064812, guid: f6fd3988e471d0c439a2a7b234db58f8,
@@ -949,10 +948,8 @@ MonoBehaviour:
     m_Bits: 4294967295
 --- !u!114 &605806252
 MonoBehaviour:
-=======
 --- !u!65 &334313425
 BoxCollider:
->>>>>>> d008f81b1e600e4f9ea69065a0ad9d6ffb6f55c2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
