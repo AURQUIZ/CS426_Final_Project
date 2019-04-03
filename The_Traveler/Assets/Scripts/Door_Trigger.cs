@@ -5,9 +5,8 @@ using UnityEngine;
 public class Door_Trigger : MonoBehaviour
 {
     [SerializeField]
-    GameObject door;
-    GameObject key;
-
+    GameObject door = null;
+    // GameObject key = null;
     bool isOpen = false;
 
 
