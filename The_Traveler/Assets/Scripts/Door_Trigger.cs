@@ -10,8 +10,8 @@ public class Door_Trigger : MonoBehaviour
 
     public AudioSource doorOpen;
     public AudioSource doorClose;
-    bool isOpen = false;
     bool isOpening;
+    bool isOpen = false;
     bool isClosing;
     float doorPositionY;
 

@@ -24,12 +24,7 @@ public class TimeTravelManager : MonoBehaviour
             travelCooldown = 5f;
             player.transform.position += offsetTravel;
             traveled = true;
-            //DataHolder.SetPlayerPosition(player.transform.position);
-            //if(currentScene.name.Equals("Level_01_Good_Timeline"))
-            //    SceneManager.LoadScene("SampleScene");
-            //else
-            //    SceneManager.LoadScene("Level_01_Good_Timeline");
-            //Application.LoadLevel("Level_01_Good_Timeline");
+
         } else if (Input.GetKeyDown(KeyCode.Q) && traveled == true && travelCooldown < 0)
         {
             Debug.Log("Traveled backward");
