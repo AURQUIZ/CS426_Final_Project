@@ -65,8 +65,6 @@ public class Movement : MonoBehaviour
             else if (Input.GetKey(KeyCode.D))
                 movement += new Vector3(1, 0, 0);
 
-
-
             // make sure it works no matter what direction player is at
             movement = transform.TransformDirection(movement);
 
