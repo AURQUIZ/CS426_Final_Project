@@ -10,7 +10,7 @@ public class HealthBar : MonoBehaviour
     public float healthRatio { get; set; }
 
     public Slider healthBar;
-    public Image fillBar;
+    public Image healthFill;
 
 
     // Start is called before the first frame update
@@ -36,7 +36,6 @@ public class HealthBar : MonoBehaviour
     void DealDamage(float damageValue)
     {
         currentHealth -= damageValue;
-        healthRatio = currentHealth / maxHealth;
         if (currentHealth <= 0)
         {
             currentHealth = 0;
@@ -47,10 +46,9 @@ public class HealthBar : MonoBehaviour
             currentHealth = maxHealth;
         }
 
-        Debug.Log("Health: " + currentHealth + "/" + maxHealth + " Ratio: " + (currentHealth / maxHealth));
+        Debug.Log("Health: " + currentHealth + "/" + maxHealth + " Ratio: " + CalculateHealth());
         healthBar.value = CalculateHealth();
-
-        fillBar.color = Color.Lerp(Color.red, Color.green, healthRatio);
+        healthFill.color = Color.Lerp(Color.red, Color.green, healthRatio);
     }
 
     float CalculateHealth()
