@@ -63,17 +63,10 @@ public class Movement : MonoBehaviour
             if (Input.GetKey(KeyCode.A))
                 movement += new Vector3(-1, 0, 0);
             else if (Input.GetKey(KeyCode.D))
-<<<<<<< HEAD
                 movement += new Vector3(1, 0, 0);
 
 
 
-=======
-                movement += new Vector3(1,0,0);
-
-        
-
->>>>>>> parent of ff80319... pause menu
             // make sure it works no matter what direction player is at
             movement = transform.TransformDirection(movement);
 
@@ -94,7 +87,6 @@ public class Movement : MonoBehaviour
             pitch = maxPitch;
         else if (pitch <= -maxPitch)
             pitch = -maxPitch;
-<<<<<<< HEAD
 
         // turn the player
         transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
@@ -103,18 +95,6 @@ public class Movement : MonoBehaviour
         movement.y = movement.y - (gravity * Time.deltaTime);
         // move the player based on the key inputs
         controller.Move(movement * Time.deltaTime * speed);
-    }
-=======
->>>>>>> parent of ff80319... pause menu
-
-        // turn the player
-        transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
-
-        // apply gravity to the jump
-        movement.y = movement.y - (gravity * Time.deltaTime);
-        // move the player based on the key inputs
-        controller.Move(movement * Time.deltaTime * speed);
-
     }
 }
 
