@@ -48,7 +48,7 @@ public class HealthBar : MonoBehaviour
 
         Debug.Log("Health: " + currentHealth + "/" + maxHealth + " Ratio: " + CalculateHealth());
         healthBar.value = CalculateHealth();
-        healthFill.color = Color.Lerp(Color.red, Color.green, healthRatio);
+        healthFill.color = Color.Lerp(Color.red, Color.green, CalculateHealth());
     }
 
     float CalculateHealth()
