@@ -30,82 +30,72 @@ public class Movement : MonoBehaviour
         t = GetComponent<Transform>();
         walkingSpeed = speed;
         runningSpeed = walkingSpeed * 1.5f;
-        canMove = true;
     }
     // Update is called once per frame
     void Update()
     {
-        if(canMove)
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        // controls player movement
+        if (controller.isGrounded)
         {
-            Debug.Log("TRUE");
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-            // controls player movement
-            if (controller.isGrounded)
+            // create a zero vector
+            movement = Vector3.zero;
+
+            if (Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.S)) //if player moves, but not backwards (cannot sprint while going back)
             {
-                // create a zero vector
-                movement = Vector3.zero;
-
-                if (Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.S)) //if player moves, but not backwards (cannot sprint while going back)
-                {
-                    isRunning = true;
-                    speed = runningSpeed;
-                }
-                else
-                {
-                    isRunning = false;
-                    speed = walkingSpeed;
-                }
-
-                // add values or subtract values based on key input
-                // move character forward or backwards
-                if (Input.GetKey(KeyCode.W))
-                    movement += new Vector3(0, 0, 1);
-                else if (Input.GetKey(KeyCode.S))
-                    movement += new Vector3(0, 0, -1);
-
-                // move character left or right
-                if (Input.GetKey(KeyCode.A))
-                    movement += new Vector3(-1, 0, 0);
-                else if (Input.GetKey(KeyCode.D))
-                    movement += new Vector3(1, 0, 0);
-
-
-
-                // make sure it works no matter what direction player is at
-                movement = transform.TransformDirection(movement);
-
-                // Have the character jump
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    movement.y = 3;
-                    jumpAudio.Play();
-                }
+                isRunning = true;
+                speed = runningSpeed;
+            }
+            else
+            {
+                isRunning = false;
+                speed = walkingSpeed;
             }
 
-            // turn character based on mouse input
-            pitch -= speedV * Input.GetAxis("Mouse Y");
-            yaw += speedH * Input.GetAxis("Mouse X");
+            // add values or subtract values based on key input
+            // move character forward or backwards
+            if (Input.GetKey(KeyCode.W))
+                movement += new Vector3(0, 0, 1);
+            else if (Input.GetKey(KeyCode.S))
+                movement += new Vector3(0, 0, -1);
 
-            // lock the pitch if the player looks too far down or up
-            if (pitch >= maxPitch)
-                pitch = maxPitch;
-            else if (pitch <= -maxPitch)
-                pitch = -maxPitch;
+            // move character left or right
+            if (Input.GetKey(KeyCode.A))
+                movement += new Vector3(-1, 0, 0);
+            else if (Input.GetKey(KeyCode.D))
+                movement += new Vector3(1, 0, 0);
 
-            // turn the player
-            transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
 
-            // apply gravity to the jump
-            movement.y = movement.y - (gravity * Time.deltaTime);
-            // move the player based on the key inputs
-            controller.Move(movement * Time.deltaTime * speed);
+
+            // make sure it works no matter what direction player is at
+            movement = transform.TransformDirection(movement);
+
+            // Have the character jump
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                movement.y = 3;
+                jumpAudio.Play();
+            }
         }
-        else
-        {
-            Debug.Log("FALSE");
-        }
 
+        // turn character based on mouse input
+        pitch -= speedV * Input.GetAxis("Mouse Y");
+        yaw += speedH * Input.GetAxis("Mouse X");
+
+        // lock the pitch if the player looks too far down or up
+        if (pitch >= maxPitch)
+            pitch = maxPitch;
+        else if (pitch <= -maxPitch)
+            pitch = -maxPitch;
+
+        // turn the player
+        transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
+
+        // apply gravity to the jump
+        movement.y = movement.y - (gravity * Time.deltaTime);
+        // move the player based on the key inputs
+        controller.Move(movement * Time.deltaTime * speed);
     }
 
 }

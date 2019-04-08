@@ -13,13 +13,12 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         playerScript = playerObject.GetComponent<Movement>();
-        Cursor.visible = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if(isPaused)
             {
@@ -38,7 +37,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
-        playerScript.canMove = true;
+        //playerScript.canMove = true;
     }
 
     public void Pause()
@@ -46,7 +45,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
-        playerScript.canMove = false;
+        //playerScript.canMove = false;
     }
 
     public void QuitGame()

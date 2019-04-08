@@ -197,7 +197,6 @@ GameObject:
   - component: {fileID: 22713334}
   - component: {fileID: 22713337}
   - component: {fileID: 22713336}
-  - component: {fileID: 22713335}
   m_Layer: 5
   m_Name: CurrentTravel
   m_TagString: Untagged
@@ -224,20 +223,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &22713335
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 22713333}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73f27a286a6c45a43b114af0f1a1da90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 1388613516}
-  healthFill: {fileID: 0}
 --- !u!114 &22713336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1776,7 +1761,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5cabbca9393aa414c973be49df4e14ed, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.157
+  m_Volume: 0.073
   m_Pitch: 1
   Loop: 0
   Mute: 0
