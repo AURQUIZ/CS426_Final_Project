@@ -14,6 +14,7 @@ public class TimeTravelManager : MonoBehaviour
     public AudioSource bad_music;
     public AudioSource good_music;
     public AudioSource time_travel_sound;
+    public GameObject sunSource;
 
     public bool travelForward()
     {
@@ -21,6 +22,7 @@ public class TimeTravelManager : MonoBehaviour
         Debug.Log(traveled);
         Debug.Log(travelCooldown);
 
+        sunSource.SetActive(true);
         time_travel_sound.Play();
         bad_music.Stop();
         good_music.Play();
@@ -38,6 +40,8 @@ public class TimeTravelManager : MonoBehaviour
         Debug.Log(traveled);
         Debug.Log(travelCooldown);
 
+        sunSource.SetActive(false);
+
         time_travel_sound.Play();
         bad_music.Play();
         good_music.Stop();
@@ -51,6 +55,6 @@ public class TimeTravelManager : MonoBehaviour
     public void Awake()
     {
         bad_music.Play();
-
+        sunSource.SetActive(false);
     }
 }
