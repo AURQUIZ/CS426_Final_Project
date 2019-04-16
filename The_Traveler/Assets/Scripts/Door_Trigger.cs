@@ -8,6 +8,8 @@ public class Door_Trigger : MonoBehaviour
     GameObject door;
     GameObject key;
 
+    public GameObject key_object;
+
     public AudioSource doorOpen;
     public AudioSource doorClose;
     bool isOpening;
@@ -49,7 +51,8 @@ public class Door_Trigger : MonoBehaviour
     {
         if(isOpen == false)
         {
-            if(c.gameObject.gameObject.tag == "blue key")
+            if(GameObject.ReferenceEquals(key_object, c.gameObject))
+            //if(c.gameObject.gameObject.tag == "blue key")
             {
                 isOpen = true;
                 isOpening = true;
