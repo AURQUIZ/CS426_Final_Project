@@ -13,6 +13,7 @@ public class TimeTravelManager : MonoBehaviour
     public Vector3 offsetTravel = new Vector3(0, 0, 1000);
     public AudioSource bad_music;
     public AudioSource good_music;
+    public AudioSource time_travel_sound;
 
     public bool travelForward()
     {
@@ -20,6 +21,7 @@ public class TimeTravelManager : MonoBehaviour
         Debug.Log(traveled);
         Debug.Log(travelCooldown);
 
+        time_travel_sound.Play();
         bad_music.Stop();
         good_music.Play();
 
@@ -36,6 +38,7 @@ public class TimeTravelManager : MonoBehaviour
         Debug.Log(traveled);
         Debug.Log(travelCooldown);
 
+        time_travel_sound.Play();
         bad_music.Play();
         good_music.Stop();
         travelCooldown = 5f;
@@ -48,5 +51,6 @@ public class TimeTravelManager : MonoBehaviour
     public void Awake()
     {
         bad_music.Play();
+
     }
 }
