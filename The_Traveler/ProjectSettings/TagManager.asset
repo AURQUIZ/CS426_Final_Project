@@ -9,6 +9,7 @@ TagManager:
   - blue key
   - Canvas
   - NPC
+  - Floor
   layers:
   - Default
   - TransparentFX
@@ -20,8 +21,8 @@ TagManager:
   - 
   - PostProcessing
   - Player
-  - 
-  - 
+  - FloorIsActive
+  - FloorNotActive
   - 
   - 
   - 

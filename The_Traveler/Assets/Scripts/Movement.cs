@@ -94,5 +94,10 @@ public class Movement : MonoBehaviour
         // move the player based on the key inputs
         controller.Move(movement * Time.deltaTime * speed);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Test");
+    }
 }
 
