@@ -21,6 +21,7 @@ public class HealthBar : MonoBehaviour
         healthRatio = currentHealth / maxHealth;
 
         healthBar.value = CalculateHealth();
+        healthFill.color = Color.Lerp(Color.red, Color.green, CalculateHealth());
     }
 
     // Update is called once per frame
