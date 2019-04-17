@@ -17,13 +17,6 @@ public class Door_Trigger : MonoBehaviour
     bool isClosing;
     float doorPositionY;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -49,18 +42,16 @@ public class Door_Trigger : MonoBehaviour
 
     void OnTriggerEnter(Collider c)
     {
-        if(isOpen == false)
-        {
+        //if(isOpen == false)
+        //{
             if(GameObject.ReferenceEquals(key_object, c.gameObject))
-            //if(c.gameObject.gameObject.tag == "blue key")
             {
                 isOpen = true;
                 isOpening = true;
                 doorPositionY = door.transform.position.y;
                 doorOpen.Play();
             }
-        }
-            
+        //}    
     }
 
     void OnTriggerExit(Collider c)

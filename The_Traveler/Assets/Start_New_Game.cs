@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class End_Game : MonoBehaviour
+public class Start_New_Game : MonoBehaviour
 {
-
-    void OnTriggerEnter(Collider other)
+    public void Awake()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        SceneManager.LoadScene("End_Game_Screen");
-
+    }
+    public void BeginNewGame()
+    {
+        SceneManager.LoadScene("SampleScene");
     }
 }
