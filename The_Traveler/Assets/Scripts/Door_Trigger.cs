@@ -5,63 +5,60 @@ using UnityEngine;
 public class Door_Trigger : MonoBehaviour
 {
     [SerializeField]
-    GameObject door;
-    GameObject key;
+    private GameObject door;
 
     public GameObject key_object;
 
     public AudioSource doorOpen;
     public AudioSource doorClose;
-    bool isOpening;
-    bool isOpen = false;
-    bool isClosing;
-    float doorPositionY;
+    private Vector3 doorPositionY;
+    private bool isLocked = true;
 
+    void Start()
+    {
+        doorPositionY = door.transform.position;
+    }
     // Update is called once per frame
     void Update()
     {
-        if(isOpening == true)
+
+        // change the position of the door based on whether it is locked or not
+        if (!isLocked)
         {
             door.transform.Translate(Vector3.up * Time.deltaTime * 40);
         }
-        if(door.transform.position.y < doorPositionY - 50f)
-        {
-            isOpening = false;
-        }
-
-        if(isClosing == true)
+        else
         {
             door.transform.Translate(Vector3.down * Time.deltaTime * 40);
         }
-        if (door.transform.position.y > doorPositionY + 50f)
+
+
+        // make sure the door y position does not increase or decrease indefinitely
+        if (door.transform.position.y > doorPositionY.y)
         {
-            isClosing = false;
+            door.transform.position = doorPositionY;
         }
-        
+        if (door.transform.position.y < (doorPositionY.y - 50f))
+        {
+            door.transform.position = new Vector3(doorPositionY.x, doorPositionY.y - 50f, doorPositionY.z);
+        }
+
     }
 
     void OnTriggerEnter(Collider c)
     {
-        //if(isOpen == false)
-        //{
-            if(GameObject.ReferenceEquals(key_object, c.gameObject))
-            {
-                isOpen = true;
-                isOpening = true;
-                doorPositionY = door.transform.position.y;
-                doorOpen.Play();
-            }
-        //}    
+        // if the correct collision occurs, set the lock bool to false 
+        if (GameObject.ReferenceEquals(key_object, c.gameObject))
+        {
+            isLocked = false;
+            doorOpen.Play();
+        }
     }
 
     void OnTriggerExit(Collider c)
     {
-        if(isOpen == true)
-        {
-            isOpen = false;
-            isClosing = true;
-            doorPositionY = door.transform.position.y;
-            doorClose.Play();
-        }
+        // set the lock bool to true because key is no longer set
+        isLocked = true;
+        doorClose.Play();
     }
 }
