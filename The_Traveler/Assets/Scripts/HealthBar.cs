@@ -78,7 +78,6 @@ public class HealthBar : MonoBehaviour
     void Die()
     {
         Debug.Log("Character died");
-        this.gameObject.GetComponentInChildren<Movement>().canMove = false;
         death.Play();
         anim.Play("die");
         this.gameObject.GetComponentInChildren<Movement>().canMove = false;
