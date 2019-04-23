@@ -11,11 +11,17 @@ public class HealthBar : MonoBehaviour
 
     public Slider healthBar;
     public Image healthFill;
+    public CharacterController controller;
+    public Animation anim;
+    public AudioSource death;
+    public AudioClip[] bodyHittingFloorClips;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animation>();
+
         maxHealth = 100f;
         currentHealth = maxHealth;
         healthRatio = currentHealth / maxHealth;
@@ -57,9 +63,25 @@ public class HealthBar : MonoBehaviour
         return currentHealth / maxHealth;
     }
 
+    void BodyHittingFloor()
+    {
+        AudioClip clip = GetClip();
+        death.PlayOneShot(clip, 0.5f); //plays clip
+    }
+
+    private AudioClip GetClip()
+    {
+        return bodyHittingFloorClips[UnityEngine.Random.Range(0, bodyHittingFloorClips.Length)];
+    }
+
+
     void Die()
     {
         Debug.Log("Character died");
+        this.gameObject.GetComponentInChildren<Movement>().canMove = false;
+        death.Play();
+        anim.Play("die");
+        this.gameObject.GetComponentInChildren<Movement>().canMove = false;
     }
 }
 
