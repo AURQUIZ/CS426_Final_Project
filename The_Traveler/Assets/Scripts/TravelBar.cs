@@ -8,7 +8,7 @@ public class TravelBar : MonoBehaviour
 
     public Slider travelBar;
     public Image travelFill;
-    private float timeToTravel = 5f;
+    private float timeToTravel = 3f;
     public bool traveled = false;
     public TimeTravelManager manager;
     public float cooldown = 0f;
