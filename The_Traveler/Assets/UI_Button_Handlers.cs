@@ -12,19 +12,6 @@ public class UI_Button_Handlers : MonoBehaviour
         Cursor.visible = true;
     }
 
-    void Start()
-    {
-        Text start_game_button = GameObject.Find("StartGame").GetComponentInChildren<Text>();//.text = "la di da";
-        Text end_game_button = GameObject.Find("EndGame").GetComponentInChildren<Text>();
-        if(start_game_button != null)
-        {
-            start_game_button.text = "Start Game";
-            end_game_button.text = "End Game";
-
-        }
-    }
-
-
     public void BeginNewGame()
     {
         SceneManager.LoadScene("SampleScene");
@@ -32,7 +19,12 @@ public class UI_Button_Handlers : MonoBehaviour
 
     public void BeginNewGameWithStory()
     {
+        SceneManager.LoadScene("Introduction");
+    }
 
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("Main_Menu");
     }
 
     public void ShowControls()
