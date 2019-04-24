@@ -38,9 +38,12 @@ public class Movement : MonoBehaviour
     {
         if(canMove)
         {
+            Time.timeScale = 1f;
+            //Debug.Log("ABLE TO MOVE");
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
             // controls player movement
+            //Debug.Log(controller.isGrounded);
             if (controller.isGrounded)
             {
                 // create a zero vector
@@ -74,7 +77,7 @@ public class Movement : MonoBehaviour
                 {
                     SceneManager.LoadScene("SampleScene");
                 }
-
+                //Debug.Log(movement);
                 // make sure it works no matter what direction player is at
                 movement = transform.TransformDirection(movement);
 
