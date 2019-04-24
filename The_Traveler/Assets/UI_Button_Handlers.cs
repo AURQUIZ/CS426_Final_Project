@@ -35,6 +35,16 @@ public class UI_Button_Handlers : MonoBehaviour
         SceneManager.LoadScene("Introduction");
     }
 
+    public void ShowCredits()
+    {
+        SceneManager.LoadScene("End_Game_Screen");
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
     public void ShowControlScheme()
     {
 
