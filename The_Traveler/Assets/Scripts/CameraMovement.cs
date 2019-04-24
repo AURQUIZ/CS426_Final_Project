@@ -7,11 +7,13 @@ public class CameraMovement : MonoBehaviour
     private bool isMoving;
     private bool leftBob;
     private bool rightBob;
+    public HealthBar healthBar;
     public Animation anim;
     public CharacterController controller;
     public AudioClip[] walkFloorClips;
     public AudioClip[] runFloorClips;
     private AudioSource audioSource;
+    public Movement player;
     // Start is called before the first frame update
     void Start()
     {
@@ -91,6 +93,9 @@ public class CameraMovement : MonoBehaviour
         else
             isMoving = true;
 
-        WalkingAnimation();
+        if(healthBar.currentHealth > 0)
+        {
+            WalkingAnimation();
+        }
     }
 }
