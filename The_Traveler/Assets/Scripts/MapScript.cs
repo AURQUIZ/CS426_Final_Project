@@ -13,7 +13,7 @@ public class MapScript : MonoBehaviour
     void LateUpdate()
     {
         Vector3 newPos = target.position;
-        newPos.y = target.position.y + 10;
+        newPos.y = target.position.y;
         transform.position = newPos;
 
         transform.rotation = Quaternion.Euler(90f, target.eulerAngles.y, 0f);
