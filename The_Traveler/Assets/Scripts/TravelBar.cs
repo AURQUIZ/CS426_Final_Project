@@ -12,6 +12,7 @@ public class TravelBar : MonoBehaviour
     public bool traveled = false;
     public TimeTravelManager manager;
     public float cooldown = 0f;
+    public float barStatus = 0f;
 
     // Update is called once per frame
     void Update()
@@ -21,6 +22,8 @@ public class TravelBar : MonoBehaviour
 
         // calculate to let player know through UI
         travelBar.value = cooldown / timeToTravel;
+        barStatus = cooldown / timeToTravel;
+        Debug.Log(barStatus);
         travelFill.color = Color.Lerp(Color.gray, Color.cyan, travelBar.value);
 
         // once the ability is up the player can travel

@@ -46,7 +46,7 @@ public class Monster_Movement : MonoBehaviour
             // once resting is done, start walking to checkpoint 2
             //if (timeToRest < 0)
             //{
-            Debug.Log("Setting second Checkpoint!");
+            //Debug.Log("Setting second Checkpoint!");
             agent.SetDestination(checkpoint_02.position);
             animator.SetInteger("Walking", 0);
                 //timeToRest = 5f;
@@ -107,7 +107,7 @@ public class Monster_Movement : MonoBehaviour
             //}
         } else
         {
-            Debug.Log("Else statement Entered!!");
+            //Debug.Log("Else statement Entered!!");
             if(hasGoneOffPatrol)
             {
                 agent.SetDestination(checkpoint_01.position);
