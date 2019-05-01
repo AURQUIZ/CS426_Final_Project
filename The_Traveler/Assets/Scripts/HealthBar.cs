@@ -10,11 +10,13 @@ public class HealthBar : MonoBehaviour
     public float healthRatio { get; set; }
 
     public Slider healthBar;
+    public TravelBar mTBar;
     public Image healthFill;
     public CharacterController controller;
     public Animation anim;
     public AudioSource death;
     public AudioClip[] bodyHittingFloorClips;
+    private float healthRegen = 2.0f;
 
 
     // Start is called before the first frame update
@@ -33,10 +35,20 @@ public class HealthBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X))
+        
+        if(currentHealth != 0 && currentHealth < 100)
+        {
+            currentHealth += Time.deltaTime * healthRegen;
+
+            healthBar.value = CalculateHealth();
+            healthFill.color = Color.Lerp(Color.red, Color.green, CalculateHealth());
+        }
+        if (Input.GetKeyDown(KeyCode.Q) && mTBar.barStatus >= 1.0f)
         {
             DealDamage(10);
         }
+
+
 
     }
 
