@@ -10,7 +10,7 @@ public class Movement : MonoBehaviour
     public float runningSpeed;
     public float gravity = 10.0f;
 
-    private float sensitivity = .5f;
+    private float sensitivity = .3f;
     private float yaw = 0.0f;
     private float pitch = 0.0f;
     private float maxPitch = 40;

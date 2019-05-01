@@ -614,6 +614,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16e6d863584755e4d872a0db3f553c21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controlsText: {fileID: 0}
+  header: {fileID: 0}
+  resume: {fileID: 0}
+  controls: {fileID: 0}
+  quit: {fileID: 0}
 --- !u!1 &1393055411
 GameObject:
   m_ObjectHideFlags: 0
@@ -833,7 +838,8 @@ MonoBehaviour:
     m_LineSpacing: 2
   m_Text: "Demo Complete!\nMade by: Alexis Urquiza, Alfonso Arias, Larry Ngo\nThis
     was work done at UIC as part of CS426 Videogame Design\nSounds: PremiumBeat ,
-    Creator Effects\r, nathanolson\r, Mike McDonough, qubodup\n3D Models: Mixamo\nTextures: "
+    Creator Effects\r, nathanolson\r, Mike McDonough, qubodup\n3D Models: Mixamo\nTextures:
+    RRFreelance\r, DucVu FX"
 --- !u!222 &1863054493
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ public class Monster_Movement : MonoBehaviour
     public Transform checkpoint_02;
     public Transform checkpoint_03;
     public Transform player;
-    private Animator animator;
+    public Animator animator;
     
     
     void Start()
@@ -22,7 +22,7 @@ public class Monster_Movement : MonoBehaviour
         agent.SetDestination(checkpoint_01.position);
         fullLoop = false;
         hasGoneOffPatrol = false;
-        animator = GetComponentInChildren<Animator>();
+        //animator = GetComponentInChildren<Animator>();
     }
 
 
@@ -46,8 +46,9 @@ public class Monster_Movement : MonoBehaviour
             // once resting is done, start walking to checkpoint 2
             //if (timeToRest < 0)
             //{
-                agent.SetDestination(checkpoint_02.position);
-                animator.SetInteger("Walking", 0);
+            Debug.Log("Setting second Checkpoint!");
+            agent.SetDestination(checkpoint_02.position);
+            animator.SetInteger("Walking", 0);
                 //timeToRest = 5f;
             //}
            // else
@@ -106,6 +107,7 @@ public class Monster_Movement : MonoBehaviour
             //}
         } else
         {
+            Debug.Log("Else statement Entered!!");
             if(hasGoneOffPatrol)
             {
                 agent.SetDestination(checkpoint_01.position);
